@@ -393,7 +393,7 @@ For example:
 }
 ```
 
-Gemma is not asked whether the answer is correct, but only to interpret what the student wrote.
+The LLM is not asked whether the answer is correct, only to interpret what the student wrote.
 
 ---
 
@@ -551,62 +551,33 @@ This is an area that could be expanded for a production system because authentic
 
 ## Simplicity
 
-The project intentionally avoids:
+The project lacks the following in the interest of time:
 
 - A large database
 - Authentication
 - Distributed services
 - Fine-tuning
-- A custom mathematical theorem prover
 - A complex frontend
 - Production-scale observability
-
-This keeps the assignment focused on the core problem.
 
 ## Reliability
 
 Additional complexity is introduced where reliability matters:
 
-- Structured mathematical specifications
-- Syllabus-controlled generation
-- Deterministic validation
-- Exact fraction arithmetic
+- Structured mathematical specifications (for mathematical correctness)
+- Syllabus-controlled generation (generating syllabi aligned questions)
+- Deterministic validation (ensuring mathematical correctness)
+- Exact fraction arithmetic 
 - Structured LLM output
 - Separation between interpretation and marking
 
-This reflects a general design principle:
-
-> Add complexity where an incorrect result is costly; keep everything else simple.
+For the purpose of this project, we want to add complexity where an incorrect result is costly while keeping everything else as simple as possible.
 
 ---
 
 # 16. Limitations
 
-This is a mini production-inspired prototype rather than a complete examination marking system.
-
-Known limitations include:
-
-### Natural-language parsing
-
-Students can express mathematics in many ways. The current parser will not understand every possible formulation.
-
-### Handwritten answers
-
-The current system expects text input. Real students may submit handwriting or images.
-
-A production system would require an OCR/handwriting recognition layer before mathematical parsing.
-
-### Error-carried-forward
-
-Authentic examination marking can require detailed rubrics for different question types. The prototype implements only a simplified version and may be somewhat buggy due to the undiscovered edge cases, especially when LLMs are involved in the pipeline.
-
-### Syllabus coverage
-
-Only the explicitly implemented P5 objectives are supported.
-
-### LLM reliability
-
-Gemma can still produce incorrect natural-language explanations. The architecture reduces the impact of these errors by preventing the LLM from being the authoritative source of mathematical correctness.
+This is ultimately a prototype rather than a complete examination marking system, hence there may be bugs, especially in Part B where the LLM plays a larger role in the pipeline, despite the architecture attempting to reduce the impact of these errors by preventing the LLM from being the authoritative source of mathematical correctness.
 
 ---
 
