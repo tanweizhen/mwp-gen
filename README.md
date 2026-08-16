@@ -61,7 +61,7 @@ The generator is designed around the Singaporean Primary 5 mathematics syllabus,
 
 # 2. Architecture
 
-The system separates **mathematical correctness** from **natural-language generation**.
+The system separates mathematical correctness from natural-language generation.
 
 ```text
                     PART A
@@ -349,7 +349,7 @@ Return:
 2. Explanation for each supplied solution step
 ```
 
-This turns the LLM into a **controlled language-generation component**, rather than the mathematical solver.
+The LLM is specifically used to generate the natural language framework for the specified numbers that were generated in python.
 
 ---
 
@@ -373,7 +373,7 @@ The student simply submits their complete working.
 
 # 10. Student Response Parsing
 
-Gemma 4 first converts the free-form response into a structured representation.
+The LLM first converts the free-form response into a structured representation.
 
 For example:
 
@@ -393,11 +393,7 @@ For example:
 }
 ```
 
-Gemma is **not asked whether the answer is correct**.
-
-It is only asked to interpret what the student wrote.
-
-This is an important reliability boundary.
+Gemma is not asked whether the answer is correct, but only to interpret what the student wrote.
 
 ---
 
@@ -600,13 +596,9 @@ The current system expects text input. Real students may submit handwriting or i
 
 A production system would require an OCR/handwriting recognition layer before mathematical parsing.
 
-### Complex expressions
-
-The deterministic parser currently focuses on common P5 representations rather than arbitrary symbolic mathematics.
-
 ### Error-carried-forward
 
-Authentic examination marking can require detailed rubrics for different question types. The prototype implements only a simplified version.
+Authentic examination marking can require detailed rubrics for different question types. The prototype implements only a simplified version and may be somewhat buggy due to the undiscovered edge cases, especially when LLMs are involved in the pipeline.
 
 ### Syllabus coverage
 
