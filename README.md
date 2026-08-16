@@ -122,7 +122,7 @@ Instead, the system assigns different responsibilities to different components.
 
 ### LLM responsibilities
 
-Gemma 4 is used for:
+The LLM is used for:
 
 - Turning a mathematical specification into natural language
 - Parsing a student's free-form response
